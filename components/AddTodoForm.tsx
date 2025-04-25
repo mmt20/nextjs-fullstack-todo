@@ -26,7 +26,10 @@ const AddTodoForm = () => {
     defaultValues,
     mode: "onChange",
   });
-  const onSubmit = () => {};
+
+  const onSubmit = (data: TodoFormValues) => {
+    console.log(data);
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -56,7 +59,6 @@ const AddTodoForm = () => {
                   </FormItem>
                 )}
               />
-
               <FormField
                 control={form.control}
                 name="body"
@@ -71,12 +73,10 @@ const AddTodoForm = () => {
                   </FormItem>
                 )}
               />
+              <Button type="submit">Save changes</Button>
             </form>
           </Form>
         </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   );
