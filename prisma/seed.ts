@@ -1,19 +1,30 @@
-import { PrismaClient } from "@prisma/client";
-
+import { faker } from "@faker-js/faker";
+import { PrismaClient } from "./app/generated/prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.user.create({
-    data: {
-      email: "prisma@prisma.com",
-      name: "Prisma",
-      address: {
-        street: "123 Main St",
-        city: "Prisma City",
-        state: "CA",
-        zip: "12345",
-      },
-    },
+  // ** Genrate fake dat for user model **
+  // await prisma.user.createMany({
+  //   data: Array.from({ length: 10 }, () => ({
+  //     email: faker.internet.email(),
+  //     name: faker.internet.username(),
+  //     address: {
+  //       street: faker.location.street(),
+  //       city: faker.location.city(),
+  //       state: faker.location.state(),
+  //       zip: faker.location.zipCode(),
+  //     },
+  //   })),
+  // });
+
+  // ** Genrate fake dat for todo model **
+  await prisma.todo.createMany({
+    data: Array.from({ length: 10 }, () => ({
+      title: faker.lorem.sentence(),
+      body: faker.lorem.paragraph(),
+      completed: faker.datatype.boolean(),
+      createdAt: faker.date.past(),
+    })),
   });
 }
 
