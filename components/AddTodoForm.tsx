@@ -17,11 +17,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { todoFormSchema, TodoFormValues } from "@/schema";
 import { Input } from "./ui/input";
 import { createTodoAction } from "@/actions/todo.actions";
+import { Checkbox } from "./ui/checkbox";
 
 const AddTodoForm = () => {
   const defaultValues: TodoFormValues = {
-    title: "DEFAULT TITLE",
-    body: "DEFAULT BODY",
+    title: "",
+    body: "",
+    completed: false,
   };
   const form = useForm<TodoFormValues>({
     resolver: zodResolver(todoFormSchema),
@@ -32,7 +34,7 @@ const AddTodoForm = () => {
   const onSubmit = async (data: TodoFormValues) => {
     console.log("data", data);
 
-    await createTodoAction({ title: data.title, body: data.body });
+    await createTodoAction({ title: data.title, body: data.body, completed: data.completed });
   };
   return (
     <Dialog>
@@ -55,7 +57,7 @@ const AddTodoForm = () => {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Tittle</FormLabel>
+                    <FormLabel>Title</FormLabel>
                     <FormControl>
                       <Input placeholder="Go to gym" {...field} />
                     </FormControl>
@@ -73,6 +75,19 @@ const AddTodoForm = () => {
                       <Textarea placeholder="Tell us a little bit about yourself" className="resize-none" {...field} />
                     </FormControl>
                     <FormDescription>You can write a short description about your next todo.</FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="completed"
+                render={({ field }) => (
+                  <FormItem className="flex items-center gap-2">
+                    <FormControl>
+                      <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                    </FormControl>
+                    <FormLabel>Completed</FormLabel>
                     <FormMessage />
                   </FormItem>
                 )}
