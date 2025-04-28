@@ -18,11 +18,11 @@ exports.$Enums = {}
 
 /**
  * Prisma Client JS version: 6.6.0
- * Query Engine version: 08713a93b99d58f31485621c634b04983ae01d95
+ * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
  */
 Prisma.prismaVersion = {
   client: "6.6.0",
-  engine: "08713a93b99d58f31485621c634b04983ae01d95"
+  engine: "f676762280b54cd07c770017ed3711ddde35f37a"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -115,6 +115,7 @@ exports.Prisma.TodoScalarFieldEnum = {
   title: 'title',
   body: 'body',
   completed: 'completed',
+  userid: 'userid',
   createdAt: 'createdAt'
 };
 
