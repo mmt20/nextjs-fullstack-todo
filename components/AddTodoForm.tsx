@@ -39,15 +39,15 @@ const AddTodoForm = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>
+        <Button className="cursor-pointer">
           <Plus size={14} className="mr-1" />
           New Todo
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>Make changes to your profile here. Click save when you&apos;re done.</DialogDescription>
+          <DialogTitle>Add New Todo</DialogTitle>
+          <DialogDescription>Fill in the details of your new todo and click save when you're done.</DialogDescription>
         </DialogHeader>
         <div className="py-4">
           <Form {...form}>
@@ -92,7 +92,9 @@ const AddTodoForm = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Save changes</Button>
+              <Button className="cursor-pointer" type="submit">
+                Save changes
+              </Button>
             </form>
           </Form>
         </div>
