@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Table,
   TableBody,
@@ -9,21 +10,23 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
+import { Badge } from "@/components/ui/badge";
 import { ITodo } from "@/interfaces";
-import { Badge } from "./ui/badge";
-
 import TodoTableActions from "./TodoTableActions";
 
-export function TodosTable({ todos }: { todos: ITodo[] }) {
+interface TodosTableProps {
+  todos: ITodo[];
+}
+
+export function TodosTable({ todos }: TodosTableProps) {
   return (
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>A list of your recent todos.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
           <TableHead>Title</TableHead>
-          <TableHead>Completed</TableHead>
+          <TableHead>Status</TableHead>
           <TableHead className="text-right">Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -34,9 +37,11 @@ export function TodosTable({ todos }: { todos: ITodo[] }) {
             <TableCell>{todo.title}</TableCell>
             <TableCell>
               {todo.completed ? (
-                <Badge className="bg-green-400 dark:bg-green-300 ">Completed</Badge>
+                <Badge className="bg-green-500 text-white hover:bg-green-600 transition-colors">Completed</Badge>
               ) : (
-                <Badge variant="secondary">Uncompleted</Badge>
+                <Badge variant="secondary" className="text-gray-700 dark:text-gray-300">
+                  Uncompleted
+                </Badge>
               )}
             </TableCell>
             <TableCell className="flex items-center justify-end space-x-2">
@@ -47,8 +52,8 @@ export function TodosTable({ todos }: { todos: ITodo[] }) {
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3}>Total</TableCell>
-          <TableCell className="text-right">{todos.length}</TableCell>
+          <TableCell colSpan={3}>Total Todos</TableCell>
+          <TableCell className="text-right font-bold">{todos.length}</TableCell>
         </TableRow>
       </TableFooter>
     </Table>
