@@ -2,20 +2,18 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Loader2, Pen, Trash } from "lucide-react";
+import { Loader2, Trash } from "lucide-react";
 import { deleteTodoAction } from "@/actions/todo.actions";
+import EditTodoForm from "./EditTodoForm";
+import { ITodo } from "@/interfaces";
 
-interface TodoTableActionsProps {
-  id: string;
-}
-
-const TodoTableActions = ({ id }: TodoTableActionsProps) => {
+const TodoTableActions = ({ todo }: { todo: ITodo }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
     try {
       setLoading(true);
-      await deleteTodoAction({ id });
+      await deleteTodoAction({ id: todo.id });
     } finally {
       setLoading(false);
     }
@@ -23,11 +21,9 @@ const TodoTableActions = ({ id }: TodoTableActionsProps) => {
 
   return (
     <div className="relative flex items-center gap-2">
-      <Button size="icon" variant="outline" className="text-muted-foreground">
-        <Pen size={16} />
-      </Button>
-      <Button size="icon" variant="destructive" onClick={handleDelete} disabled={loading}>
-        {loading ? <Loader2 className="animate-spin" size={16} /> : <Trash size={16} />}
+      <EditTodoForm todo={todo} />
+      <Button size="icon" variant="destructive" className="cursor-pointer" onClick={handleDelete} disabled={loading}>
+        {loading ? <Loader2 className="animate-spin " size={16} /> : <Trash size={16} />}
       </Button>
     </div>
   );
