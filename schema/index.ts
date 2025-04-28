@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const todoFormSchema = z.object({
-  tittle: z
+  title: z
     .string()
     .min(5, { message: "Title must be at least 5 characters long" })
     .max(30, { message: "Title must be at most 30 characters long" }),

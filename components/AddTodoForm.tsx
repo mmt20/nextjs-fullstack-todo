@@ -16,9 +16,11 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Textarea } from "@/components/ui/textarea";
 import { todoFormSchema, TodoFormValues } from "@/schema";
 import { Input } from "./ui/input";
+import { createTodoAction } from "@/actions/todo.actions";
+
 const AddTodoForm = () => {
   const defaultValues: TodoFormValues = {
-    tittle: "DEFAULT TITLE",
+    title: "DEFAULT TITLE",
     body: "DEFAULT BODY",
   };
   const form = useForm<TodoFormValues>({
@@ -27,8 +29,10 @@ const AddTodoForm = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: TodoFormValues) => {
-    console.log(data);
+  const onSubmit = async (data: TodoFormValues) => {
+    console.log("data", data);
+
+    await createTodoAction({ title: data.title, body: data.body });
   };
   return (
     <Dialog>
@@ -48,7 +52,7 @@ const AddTodoForm = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
               <FormField
                 control={form.control}
-                name="tittle"
+                name="title"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Tittle</FormLabel>

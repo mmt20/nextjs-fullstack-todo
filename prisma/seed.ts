@@ -20,8 +20,8 @@ async function main() {
   // ** Genrate fake dat for todo model **
   await prisma.todo.createMany({
     data: Array.from({ length: 10 }, () => ({
-      title: faker.lorem.sentence(),
-      body: faker.lorem.paragraph(),
+      title: faker.lorem.sentence({ min: 2, max: 5 }),
+      body: faker.lorem.paragraph({ min: 1, max: 15 }),
       completed: faker.datatype.boolean(),
       createdAt: faker.date.past(),
     })),
