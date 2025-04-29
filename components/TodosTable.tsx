@@ -52,8 +52,8 @@ export function TodosTable({ todos }: TodosTableProps) {
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={3}>Total Todos</TableCell>
-          <TableCell className="text-right font-bold">{todos.length}</TableCell>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell className="text-right ">{!todos.length ? "YOU DONT HAVE TODO YET! " : todos.length}</TableCell>
         </TableRow>
       </TableFooter>
     </Table>
