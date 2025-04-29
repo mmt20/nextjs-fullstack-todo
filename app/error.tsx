@@ -30,7 +30,7 @@ export default function GlobalError({ error, reset }: { error: Error; reset: () 
         </h1>
 
         <p className="mt-4 text-xl text-muted-foreground opacity-100">
-          Oops, it looks like the page you're looking for doesn't exist.
+          Oops, it looks like the page you&apos;re looking for doesn&apos;t exist.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center opacity-100">
