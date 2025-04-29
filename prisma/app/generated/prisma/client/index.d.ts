@@ -838,7 +838,7 @@ export namespace Prisma {
     title: string | null
     body: string | null
     completed: boolean | null
-    userid: string | null
+    user_Id: string | null
     createdAt: Date | null
   }
 
@@ -847,7 +847,7 @@ export namespace Prisma {
     title: string | null
     body: string | null
     completed: boolean | null
-    userid: string | null
+    user_Id: string | null
     createdAt: Date | null
   }
 
@@ -856,7 +856,7 @@ export namespace Prisma {
     title: number
     body: number
     completed: number
-    userid: number
+    user_Id: number
     createdAt: number
     _all: number
   }
@@ -867,7 +867,7 @@ export namespace Prisma {
     title?: true
     body?: true
     completed?: true
-    userid?: true
+    user_Id?: true
     createdAt?: true
   }
 
@@ -876,7 +876,7 @@ export namespace Prisma {
     title?: true
     body?: true
     completed?: true
-    userid?: true
+    user_Id?: true
     createdAt?: true
   }
 
@@ -885,7 +885,7 @@ export namespace Prisma {
     title?: true
     body?: true
     completed?: true
-    userid?: true
+    user_Id?: true
     createdAt?: true
     _all?: true
   }
@@ -967,7 +967,7 @@ export namespace Prisma {
     title: string
     body: string | null
     completed: boolean
-    userid: string
+    user_Id: string
     createdAt: Date
     _count: TodoCountAggregateOutputType | null
     _min: TodoMinAggregateOutputType | null
@@ -993,7 +993,7 @@ export namespace Prisma {
     title?: boolean
     body?: boolean
     completed?: boolean
-    userid?: boolean
+    user_Id?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["todo"]>
 
@@ -1004,11 +1004,11 @@ export namespace Prisma {
     title?: boolean
     body?: boolean
     completed?: boolean
-    userid?: boolean
+    user_Id?: boolean
     createdAt?: boolean
   }
 
-  export type TodoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "body" | "completed" | "userid" | "createdAt", ExtArgs["result"]["todo"]>
+  export type TodoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "body" | "completed" | "user_Id" | "createdAt", ExtArgs["result"]["todo"]>
 
   export type $TodoPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Todo"
@@ -1018,7 +1018,7 @@ export namespace Prisma {
       title: string
       body: string | null
       completed: boolean
-      userid: string
+      user_Id: string
       createdAt: Date
     }, ExtArgs["result"]["todo"]>
     composites: {}
@@ -1416,7 +1416,7 @@ export namespace Prisma {
     readonly title: FieldRef<"Todo", 'String'>
     readonly body: FieldRef<"Todo", 'String'>
     readonly completed: FieldRef<"Todo", 'Boolean'>
-    readonly userid: FieldRef<"Todo", 'String'>
+    readonly user_Id: FieldRef<"Todo", 'String'>
     readonly createdAt: FieldRef<"Todo", 'DateTime'>
   }
     
@@ -1775,7 +1775,7 @@ export namespace Prisma {
     title: 'title',
     body: 'body',
     completed: 'completed',
-    userid: 'userid',
+    user_Id: 'user_Id',
     createdAt: 'createdAt'
   };
 
@@ -1863,7 +1863,7 @@ export namespace Prisma {
     title?: StringFilter<"Todo"> | string
     body?: StringNullableFilter<"Todo"> | string | null
     completed?: BoolFilter<"Todo"> | boolean
-    userid?: StringFilter<"Todo"> | string
+    user_Id?: StringFilter<"Todo"> | string
     createdAt?: DateTimeFilter<"Todo"> | Date | string
   }
 
@@ -1872,7 +1872,7 @@ export namespace Prisma {
     title?: SortOrder
     body?: SortOrder
     completed?: SortOrder
-    userid?: SortOrder
+    user_Id?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -1884,7 +1884,7 @@ export namespace Prisma {
     title?: StringFilter<"Todo"> | string
     body?: StringNullableFilter<"Todo"> | string | null
     completed?: BoolFilter<"Todo"> | boolean
-    userid?: StringFilter<"Todo"> | string
+    user_Id?: StringFilter<"Todo"> | string
     createdAt?: DateTimeFilter<"Todo"> | Date | string
   }, "id">
 
@@ -1893,7 +1893,7 @@ export namespace Prisma {
     title?: SortOrder
     body?: SortOrder
     completed?: SortOrder
-    userid?: SortOrder
+    user_Id?: SortOrder
     createdAt?: SortOrder
     _count?: TodoCountOrderByAggregateInput
     _max?: TodoMaxOrderByAggregateInput
@@ -1908,7 +1908,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Todo"> | string
     body?: StringNullableWithAggregatesFilter<"Todo"> | string | null
     completed?: BoolWithAggregatesFilter<"Todo"> | boolean
-    userid?: StringWithAggregatesFilter<"Todo"> | string
+    user_Id?: StringWithAggregatesFilter<"Todo"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Todo"> | Date | string
   }
 
@@ -1917,7 +1917,7 @@ export namespace Prisma {
     title: string
     body?: string | null
     completed?: boolean
-    userid: string
+    user_Id: string
     createdAt?: Date | string
   }
 
@@ -1926,7 +1926,7 @@ export namespace Prisma {
     title: string
     body?: string | null
     completed?: boolean
-    userid: string
+    user_Id: string
     createdAt?: Date | string
   }
 
@@ -1934,7 +1934,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: NullableStringFieldUpdateOperationsInput | string | null
     completed?: BoolFieldUpdateOperationsInput | boolean
-    userid?: StringFieldUpdateOperationsInput | string
+    user_Id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1942,7 +1942,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: NullableStringFieldUpdateOperationsInput | string | null
     completed?: BoolFieldUpdateOperationsInput | boolean
-    userid?: StringFieldUpdateOperationsInput | string
+    user_Id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1951,7 +1951,7 @@ export namespace Prisma {
     title: string
     body?: string | null
     completed?: boolean
-    userid: string
+    user_Id: string
     createdAt?: Date | string
   }
 
@@ -1959,7 +1959,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: NullableStringFieldUpdateOperationsInput | string | null
     completed?: BoolFieldUpdateOperationsInput | boolean
-    userid?: StringFieldUpdateOperationsInput | string
+    user_Id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -1967,7 +1967,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     body?: NullableStringFieldUpdateOperationsInput | string | null
     completed?: BoolFieldUpdateOperationsInput | boolean
-    userid?: StringFieldUpdateOperationsInput | string
+    user_Id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2023,7 +2023,7 @@ export namespace Prisma {
     title?: SortOrder
     body?: SortOrder
     completed?: SortOrder
-    userid?: SortOrder
+    user_Id?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -2032,7 +2032,7 @@ export namespace Prisma {
     title?: SortOrder
     body?: SortOrder
     completed?: SortOrder
-    userid?: SortOrder
+    user_Id?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -2041,7 +2041,7 @@ export namespace Prisma {
     title?: SortOrder
     body?: SortOrder
     completed?: SortOrder
-    userid?: SortOrder
+    user_Id?: SortOrder
     createdAt?: SortOrder
   }
 

@@ -12,12 +12,23 @@ export const getTodoListAction = async () => {
     orderBy: { createdAt: "desc" },
   });
 };
-export const createTodoAction = async ({ title, body, completed }: TodoFormValues) => {
+export const createTodoAction = async ({
+  title,
+  body,
+  completed,
+  userId,
+}: {
+  title: string;
+  body?: string;
+  completed?: boolean;
+  userId: string | null;
+}) => {
   await prisma.todo.create({
     data: {
       title,
       body,
       completed,
+      user_Id: userId as string,
     },
   });
   revalidatePath("/");

@@ -14,7 +14,7 @@ model Todo{
   title     String
   body      String?
   completed Boolean  @default(false)
-  userid    String   
+  user_Id    String   
   createdAt DateTime @default(now())
   
 }

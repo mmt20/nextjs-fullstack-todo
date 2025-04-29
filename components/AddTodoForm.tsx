@@ -21,7 +21,7 @@ import { createTodoAction } from "@/actions/todo.actions";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 
-const AddTodoForm = () => {
+const AddTodoForm = ({ userId }: { userId: string | null }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -40,11 +40,7 @@ const AddTodoForm = () => {
   const onSubmit = async ({ title, body, completed }: TodoFormValues) => {
     try {
       setIsLoading(true);
-      await createTodoAction({
-        title,
-        body,
-        completed,
-      });
+      await createTodoAction({ title, body, completed, userId });
       form.reset(defaultValues);
       setDialogOpen(false);
     } finally {
