@@ -21,7 +21,6 @@ interface TodosTableProps {
 export function TodosTable({ todos }: TodosTableProps) {
   return (
     <Table>
-      <TableCaption>A list of your recent todos.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>

@@ -2,7 +2,6 @@
 
 import { ITodo } from "@/interfaces";
 import { PrismaClient } from "@/prisma/app/generated/prisma/client";
-import { TodoFormValues } from "@/schema";
 import { revalidatePath } from "next/cache";
 
 const prisma = new PrismaClient();
